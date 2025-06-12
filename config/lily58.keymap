@@ -36,13 +36,13 @@
             // |  F1   |  F2 |  F3 |  F4  |  F5  |  F6  |                   |      |       |       |      |       |      |
             // |  F7   |  F8 |  F9 | F10  | F11  | F12  |                   |      |       |       |      |       |      |
             // |   `   |  !  |  @  |  #   |  $   |  %   |                   |  ^   |  &    |  *    |  (   |   )   |  |   |
-            // |       |C+Z  |C+X  | C+C  | C+V  | APP  |   {   |    }      |      |       |       |      |       |      |
+            // |       |C+Z  |C+X  | C+C  | C+V  | APP  |   {   |    }      |      |  US   |  PT   |      |       |      |
             //                     |      |      |      |       |           | L3   |C+BSPC |C+DEL  |
             bindings = <
 &kp F1     &kp F2     &kp F3     &kp F4      &kp F5      &kp F6                           &trans        &trans        &trans        &trans     &trans     &trans
 &kp F7     &kp F8     &kp F9     &kp F10     &kp F11     &kp F12                          &trans        &trans        &trans        &trans     &trans     &trans
 &kp GRAVE  &kp EXCL   &kp AT     &kp HASH    &kp DLLR    &kp PRCNT                        &kp CARET     &kp AMPS      &kp ASTRK     &kp LPAR   &kp RPAR   &kp PIPE
-&trans     &kp LC(Z)  &kp LC(X)  &kp LC(C)   &kp LC(V)   &kp K_APP   &kp LBRC   &kp RBRC  &trans        &trans        &trans        &trans     &trans     &trans
+&trans     &kp LC(Z)  &kp LC(X)  &kp LC(C)   &kp LC(V)   &kp K_APP   &kp LBRC   &kp RBRC  &trans        &kp LG(SPACE) &kp LG(SPACE) &trans     &trans     &trans
                                  &trans      &trans      &trans      &trans     &trans    &mo 3         &kp LC(BSPC)  &kp LC(DEL)
             >;
 
@@ -96,4 +96,13 @@
             mods = <(MOD_LGUI|MOD_LSFT|MOD_RGUI|MOD_RSFT)>;
         };
     };
+
+    // Custom OLED display
+    chosen {
+        zmk,display = &oled;
+    };
+};
+
+&oled {
+    status = "okay";
 };
